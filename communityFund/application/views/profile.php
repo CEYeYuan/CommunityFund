@@ -16,34 +16,46 @@
 	</header>
 	<body>
 	
+<?php
 
-<div class="profile">
-	<h1><?php echo $firstname."'s" ;?> Profile</h1>
+	$email = mysql_real_escape_string($this->session->userdata('email'));
+			//$where = "username = '$email'";
+	$query = $this->db->query("select * from User where username='$email'");
+	//echo $query->row()->DateofBirth;
 	
+	//set the initial value for gender
+	if ($query->row()->gender=='M') {
+		$genM=True;
+		$genF=False;
+	}elseif ($query->row()->gender=='F'){
+		$genM=False;
+		$genF=True;
+	}else{
+		$genM=False;
+		$genF=False;
+	}
+	
+	$yy=substr($query->row()->DateofBirth, 0,4);
+	$ypos=strpos($query->row()->DateofBirth,"y");
+	$mpos=strpos($query->row()->DateofBirth,"m");
+	$dpos=strpos($query->row()->DateofBirth,"d");
+	$mm=substr($query->row()->DateofBirth, $ypos+1,$mpos-$ypos-1);
+	$dd=substr($query->row()->DateofBirth, $mpos+1,$dpos-$mpos-1);
 
-	<form method="post" accept-charset="utf-8" action="<?php echo base_url();?>profile/profile_update_validition" >
+?>
+<div class="profile">
+	<h1>Sydna's Profile</h1>
+	<form method="post" accept-charset="utf-8" action="profile_update_validition" >
 	<div class='left-side'>
 		<img src="" alt="display picture" height="200" width="200">
 		<edit>Edit</edit>
-		<!--<input type="submit" value="done" />-->
-		<button type="submit">Done</button>
+		<input type="submit" value="done" />
 	</div>
 	<div class='right-side'>
 		<ul class="user">
 
-			<a>My Communities:</a></br>
-			<a>
-				<?php 
-				if ($communities->num_rows()===0){
-					echo "You haven't joined any community yet!";
-				}else{
-					foreach($communities->result() as $row){
-					echo $row->name."   ";}
-				}
-				echo "<br/>";
-		?>
-			</a>
-			<a class='username'>Username: <?php echo $username ;?></a>
+			<a>Welcome!</a></br>
+			<a class='username'>Username: <?php echo $query->row()->username ?></a>
 			
 			<?php 
 				//echo form_open('index.php/main/profile_update_validition');
@@ -51,8 +63,8 @@
 				//echo "<p>Upload your profile picture: ";
 				//echo form_upload('file'); 
 			?>
-			<li>First name: <a class='fn'><?php echo $firstname ;?></a></li>
-			<li>Last name: <a class='ln'><?php echo  $lastname ;?></a></li>
+			<li>First name: <a class='fn'><?php echo $query->row()->firstName ?></a></li>
+			<li>Last name: <a class='ln'><?php echo $query->row()->lastName ?></a></li>
 			<li>Date of Birth: <a class='dob'>
 
 				<!--<select disabled name="month"><option value=<?php echo $mm ?>><?php echo $mm ?></option></select>
@@ -116,18 +128,17 @@
 </div>
 <div class='tabs'>
 	<ul class="tab-links">
-		<li class="active"><a href="#funder">Projects Funded</a></li>
-		<li><a href="#initator">Projects Initiated</a></li>
+		<li class="active"><a href="#funder">I funder</a></li>
+		<li><a href="#initator">I initator</a></li>
 	</ul>
 	<div class='tab-content'>
 		<div id="funder" class="tab active">
-			<h3><?php echo $fund0; ?></h3>
-			<h3><?php echo $fund1; ?></h3>
+			<h3>FProject Name 1</h3>
+			<h3>FProject Name 2</h3>
 		</div>
 		<div id="initator" class="tab">
-			<h3><?php echo $init0; ?></h3>
-			<h3><?php echo $init1; ?></h3>
-	
+			<h3>IProject Name 1</h3>
+			<h3>IProject Name 2</h3>
 		</div>
 	</div>
 	</body>

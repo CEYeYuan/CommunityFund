@@ -31,15 +31,17 @@
 		<?php 
 
 		//Since query result include userself, even the num_rows()===1, there's no friend
-		if ($communities->num_rows()===1){
+		if ($friends->num_rows()===1 or $friends->num_rows()===0){
 			echo "You don't have any friend right now, initiate or fund a project !";
 		}else{
+	
 			foreach($friends->result() as $row){
-				if ($row->username=$this->session->userdata('username')){
-
+				if ($row->username==$this->session->userdata('email')){
 				}else{
+
 					echo "<li>";
-					echo $row->email."($row->firstName   $row->lastName)";
+					$url=base_url()."friends/chat/$row->uid";
+					echo "<a href='$url'>$row->username($row->firstName   $row->lastName)</a>";
 					echo "</li>";
 				}	
 			}
