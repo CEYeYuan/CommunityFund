@@ -1,0 +1,14 @@
+
+--This line, and those below, will be ignored--
+
+M    application/config/config.php
+M    application/config/database.php
+M    application/controllers/friends.php
+M    application/controllers/main.php
+M    application/controllers/profile.php
+M    application/controllers/project.php
+M    application/models/discover_model.php
+M    application/models/model_users.php
+M    application/models/project_model.php
+M    application/views/profile_view.php
+M    application/views/project_view.php

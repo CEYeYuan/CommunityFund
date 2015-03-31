@@ -1,0 +1,42 @@
+.form {
+	text-align: center;
+}
+div.left-side {
+	width: 25%;
+	padding-left: 20%;
+	float: left;
+	text-align: center;
+}
+div.right-side {
+	width: 50%;
+	float: left;
+	font-size: 18px;
+	text-align: left;
+	line-height: 250%;
+
+}
+div.description {
+	width: 100%;
+	text-align: left;
+	font-size: 20px;
+	float: left;
+	padding-left: 20%;
+}
+div.btn {
+	padding-top: 15px;
+	width: 100%;
+	text-align: center;
+	float: left;
+	font-size: 20px;
+	word-spacing: 250px;
+}
+div.btn a {
+	padding: 5px 15px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+	background-color: green;
+}
+div.btn a:hover {
+	background-color: blue;
+}

@@ -1,0 +1,10 @@
+
+--This line, and those below, will be ignored--
+
+M    communityFund/.htaccess
+M    communityFund/application/config/config.php
+M    communityFund/application/config/database.php
+M    communityFund/application/controllers/profile.php
+M    communityFund/application/models/model_users.php
+M    communityFund/application/views/menubar.php
+M    communityFund/application/views/profile_view.php

@@ -1,0 +1,9 @@
+
+--This line, and those below, will be ignored--
+
+M    application/config/config.php
+M    application/config/database.php
+M    application/controllers/profile.php
+M    application/models/model_users.php
+M    application/views/menubar.php
+M    application/views/profile_view.php
