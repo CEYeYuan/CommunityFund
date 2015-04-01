@@ -34,10 +34,10 @@ class friends extends CI_Controller{
 					echo "Error sending the message; Please try again";
 				}
 			}
+			
 			$data['history']=$this->model_network->query_history($withWhom);
-
-
-
+			//before user load that page, all the msg before now should been marked as read
+			$this->model_network->mark_As_Read($withWhom);
 			$this->load->view('chat_view',$data);
 		}else{
 			$this->load->view('pleaseLogin');

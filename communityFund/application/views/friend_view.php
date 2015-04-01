@@ -41,7 +41,10 @@
 
 					echo "<li>";
 					$url=base_url()."friends/chat/$row->uid";
-					echo "<a href='$url'>$row->username($row->firstName   $row->lastName)</a>";
+					echo "<a href='$url'>$row->username($row->firstName   $row->lastName)";
+					if ($row->ifread==-1)
+						echo "&#8864";
+					echo "</a>";
 					echo "</li>";
 				}	
 			}

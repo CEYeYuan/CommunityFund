@@ -27,7 +27,20 @@
 	<a class="rightside" href='<?php echo base_url() . 
 		"profile"; ?>' >Profile</a>
 	<a class="rightside" href='<?php echo base_url() . 
-		"friends"; ?>' >Friends</a>
+		"friends"; ?>' >Friends 
+				
+		<!--if a user has unread msg, a logo will be displayed next to the "Friends" anchor-->
+
+		<?php 
+			$me=$this->session->userdata('uid');
+			$now=date("Y-m-d H:i:s");
+			$sql="select * from Chathistory where receiver='$me' and  ifread='-1'";
+			$result=$this->db->query($sql);
+			if ($result->num_rows()>0)
+			echo "&#8864";
+		
+		?> </a>
+
 	<!-- Admin console code -->
 	<?php 
 		// add the link to the admin console only if user is admin
