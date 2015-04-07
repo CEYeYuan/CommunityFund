@@ -18,3 +18,8 @@ user initiated/fund a project
 user join a community
 social network(Users in the same community are considered as friends)
 friends can send instant message with each other 
+
+#Technology used:
+Backend: php (CodeIgniter as framework) 
+Front end: HTML CSS JAVASCRIPT
+Database : MYSQL
